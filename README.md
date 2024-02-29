@@ -11,12 +11,13 @@ Currently the following scripts are available:
   * ftpsync     - Used to sync an archive using rsync
   * runmirrors  - Used to notify leaf nodes of available updates
 
+
 ## Usage
 
 For impatient people, short usage instruction:
 
  * Create a dedicated user for the whole mirror.
- * Create a seperate directory for the mirror, writeable by the new user.
+ * Create a separate directory for the mirror, writeable by the new user.
  * Place the ftpsync script in the mirror user's $HOME/bin (or just $HOME)
  * Place the ftpsync.conf.sample into $HOME/etc as ftpsync.conf and edit
    it to suit your system.  You should at the very least change the TO=
@@ -27,7 +28,7 @@ For impatient people, short usage instruction:
    your upstream mirror into it. Preface it with
    `no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty,command="~/bin/ftpsync",from="IPADDRESS"`
    and replace $IPADDRESS with that of your upstream mirror.
- * You are finished
+ * You are finished.
 
 In order to receive different pushes or syncs from different archives,
 name the config file ftpsync-$ARCHIVE.conf and call the ftpsync script
@@ -92,6 +93,7 @@ functionality:
     There are more possible arguments, for a complete list see the
     ftpsync script in our git repository.
 
+
 ## ftpsync
 
 This script is based on the old anonftpsync script.  It has been rewritten
@@ -135,7 +137,6 @@ Europe to Australia, where then locally 3 others get updated before
 stage2 is sent out. Instead of 4times transferring data from Europe to
 Australia, just to have them all updated near instantly).
 
-
 ### Can run hook scripts
 ftpsync currently allows 5 hook scripts to run at various points of the
 mirror sync run.
@@ -162,7 +163,6 @@ For details of all available options, please see the extensive documentation
 in the sample configuration file.
 
 ### Commandline/SSH options
-
 Script options may be set either on the local command line, or passed by
 specifying an ssh "command".  Local commandline options always have
 precedence over the SSH_ORIGINAL_COMMAND ones.
@@ -181,11 +181,11 @@ take effect they MUST be prepended by "sync:".
 
 So, to get the script to sync all of the archive behind bpo and call back when
 it is complete, use an upstream trigger of
-ssh $USER@$HOST sync:all sync:archive:bpo sync:callback
+`ssh $USER@$HOST sync:all sync:archive:bpo sync:callback`
 
 
-Mirror trace files
-==================
+## Mirror trace files
+
 Every mirror needs to have a 'trace' file under project/trace.
 The filename has to be the full hostname (eg. hostname -f), or in the
 case of a mirror participating in RR DNS (where users will never use
@@ -209,22 +209,22 @@ not mandantory:
 | `Date-Started` | As Date, but the time the mirror run started. | `Sun, 28 Feb 2016 09:33:55 +0000` |
 | `Archive Serial` | Archive serial for mirror run, taken from main archives tracefile. | `2016022802` |
 | `Creator` | Name and version of used software | `ftpsync 20170204`
-| `Running on host` | FQDN of mirror host. This may not match the actual mirror name, its the real hostname. | `klecker.debian.org` |
+| `Running on host` | FQDN of mirror host. This may not match the actual mirror name, it's the real hostname. | `klecker.debian.org` |
 | `Maintainer` | Groups and people responsible for this mirror. | `Admins <admins@example.com>` |
 | `Sponsor` | Organizations sponsoring this mirror. | `Example <https://example.com>` |
 | `Country` | The ISO 3361-1 code of the country hosting this mirror. | `DE` |
 | `Location` | The location this mirror is hosted in. | `Example` |
 | `Throughput` | Available throughput for this mirror per second. | `10Gb` |
-| `Trigger` | Trigger used for this run.` | `cron`, `ssh (comment)` |
+| `Trigger` | Trigger used for this run. | `cron`, `ssh (comment)` |
 | `Architectures` | List of architectures included in the mirror. | `all amd64 i386 source` |
 | `Architectures-Configuration` | Architecture list as specified in config. | `ALL`, `INCLUDE amd64 i386 source`, `EXCLUDE armel` |
 | `Upstream-Mirror` | From where does the mirror get its data. | `ftp-master.debian.org` |
-| `Rsync-Transport` | Transport to connect to upstream used by rsync | `plain`
-| `Total bytes received in rsync` | rsync --stats output, bytes received | `1109846675` |
-| `Total time spent in stage1 rsync` | Seconds of runtime for stage1 | `347` |
-| `Total time spent in stage2 rsync` | Seconds of runtime for stage2 | `47` |
-| `Total time spent in rsync` | How long in total for rsync | `394` |
-| `Average rate` | How fast did the sync go | `2816869 B/s` |
+| `Rsync-Transport` | Transport to connect to upstream used by rsync. | `plain`
+| `Total bytes received in rsync` | rsync --stats output, bytes received. | `1109846675` |
+| `Total time spent in stage1 rsync` | Seconds of runtime for stage1. | `347` |
+| `Total time spent in stage2 rsync` | Seconds of runtime for stage2. | `47` |
+| `Total time spent in rsync` | How long in total for rsync. | `394` |
+| `Average rate` | How fast did the sync go. | `2816869 B/s` |
 
 The third line in the legacy format and the hostname for the "Running
 on Host" line for the new format MUST NOT be the DNS RR name, even if

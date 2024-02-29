@@ -20,7 +20,7 @@ turn sync from it.
 # OPTIONS
 
 **-C**
-:   The CA path for certificate verification
+:   The CA path for certificate verification.
 
     Default: **/etc/ssl/certs**
 

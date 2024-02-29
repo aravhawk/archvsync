@@ -57,10 +57,10 @@ turn sync from it.
     Default: **debian**
 
 **RSYNC_USER**
-:   In case we need a user to access the rsync share at our upstream host
+:   In case we need a user to access the rsync share at our upstream host.
 
 **RSYNC_PASSWORD**
-:   If we need a user we also need a password
+:   If we need a user we also need a password.
 
 **RSYNC_TRANSPORT**
 :   Set to select the transport used for rsync.
@@ -86,7 +86,7 @@ turn sync from it.
      encrypted tunnel.
 
      **stunnel**
-     :   requires at least stunnel version 5.15 built aginst openssl
+     :   requires at least stunnel version 5.15 built against openssl
          1.0.2 or later such that the stunnel build supports the checkHost
          service-level option.  This will cause stunnel to verify both the
          peer certificate's validity and that it's actually for the host we wish
@@ -151,7 +151,7 @@ These options can be used to include or exclude specified architectures or other
 
 **ARCH_INCLUDE**
 :   If you want to include only a subset of architectures, this is for you.
-    Use as space seperated list of architectures in the archive you are
+    Use as space separated list of architectures in the archive you are
     mirroring from, "source" counts as architecture.
 
     Architecture "all" will be included automatically if one binary
@@ -163,7 +163,7 @@ These options can be used to include or exclude specified architectures or other
 
 **ARCH_EXCLUDE**
 :   If you want to exclude an architecture, this is for you.
-    Use as space seperated list of architectures in the archive you are
+    Use as space separated list of architectures in the archive you are
     mirroring from, "source" counts as architecture.
 
     Mutually exclusive with **ARCH_INCLUDE**.
@@ -175,7 +175,7 @@ These options can be used to include or exclude specified architectures or other
     See rsync(1) for the exact syntax, these are passed to rsync as written here.
     DO NOT TRY TO EXCLUDE ARCHITECTURES OR SUITES WITH THIS, IT WILL NOT WORK!
 
-## Log option
+## Log options
 
 **LOGDIR**
 :   In which directory should logfiles end up.
@@ -205,27 +205,27 @@ These options can be used to include or exclude specified architectures or other
 
 **LOGROTATE**
 :   We do create three logfiles for every run. To save space we rotate them, this
-    defines how many we keep
+    defines how many we keep.
 
     Default: **14**
 
 ## Other options
 
 **LOCKTIMEOUT**
-:   Timeout for the lockfile, in case we have bash older than v4 (and no /proc)
+:   Timeout for the lockfile, in case we have bash older than v4 (and no /proc).
 
     Default: **3600**
 
 **UIPSLEEP**
 :   Number of seconds to sleep before retrying to sync whenever upstream
-    is found to be updating while our update is running
+    is found to be updating while our update is running.
 
     Default: **1200**
 
 **UIPRETRIES**
 :   Number of times the update operation will be retried when upstream
     is found to be updating while our update is running.
-    Note that these are retries, so: 1st attempt + retries = total attempts
+    Note that these are retries, so: 1st attempt + retries = total attempts.
 
     Default: **3**
 
@@ -235,7 +235,7 @@ These options can be used to include or exclude specified architectures or other
     Default: **$(hostname -f)**
 
 **RSYNC**
-:   The rsync program
+:   The rsync program.
 
 **RSYNC_EXTRA**
 :   Extra rsync options as defined by the local admin.
@@ -248,7 +248,7 @@ These options can be used to include or exclude specified architectures or other
     shown below.
 
 **RSYNC_BW**
-:   limit I/O bandwidth. Value is KBytes per second, unset or 0 means unlimited
+:   Limit I/O bandwidth. Value is KBytes per second, unset or 0 means unlimited.
 
 
 **RSYNC_OPTIONS**

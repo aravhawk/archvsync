@@ -45,7 +45,7 @@ turn sync from it.
 
 **LOGROTATE**
 :   We do create a logfile for every run. To save space we rotate them, this
-    defines how many we keep
+    defines how many we keep.
 
     Default: **14**
 
@@ -57,24 +57,24 @@ turn sync from it.
     Default: **~/.local/lock/ftpsync** in the package, **${BASEDIR}/locks** otherwise
 
 **MIRRORS**
-:   Our mirrorfile
+:   Our mirrorfile.
 
     Default: **${CONFDIR}/${NAME}.mirror**
 
 **SSH_OPTS**
 :   Extra ssh options we might want. *hostwide*.
-    By default, ignore ssh key change of leafs
+    By default, ignore ssh key change of leafs.
 
-    Default **"-o StrictHostKeyChecking=no"**
+    Default: **"-o StrictHostKeyChecking=no"**
 
 **PUSHARCHIVE**
-:   Whats our archive name? We will also tell our leafs about it
+:   What's our archive name? We will also tell our leafs about it.
     This is usually empty, but if we are called as "runmirrors bpo"
     it will default to bpo. This way one runmirrors script can serve
     multiple archives, similar to what ftpsync does.
 
 **PUSHDELAY**
-:   How long to wait for mirrors to do stage1 if we have multi-stage syncing
+:   How long to wait for mirrors to do stage1 if we have multi-stage syncing.
 
     Default: **600**
 
