@@ -22,17 +22,17 @@ turn sync from it.
 **-C**
 :   The CA path for certificate verification.
 
-    Default: **/etc/ssl/certs**
+    Default: `/etc/ssl/certs`
 
 **-m**
 :   The method used to connect to the remote host.
 
-    Default: **stunnel**
+    Default: `stunnel`
 
 **-p**
 :   The port used to connect to the remote host.
 
-    Default: **1873**
+    Default: `1873`
 
 # EXAMPLE
 

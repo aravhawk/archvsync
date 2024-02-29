@@ -20,27 +20,27 @@ turn sync from it.
 :   Mirrorname. This is used for things like the trace file name and should
     always be the full hostname of the mirror.
 
-    Default: **$(hostname -f)**
+    Default: `$(hostname -f)`
 
 **TO**
 :   Destination of the mirrored files. Should be an empty directory.  CAREFUL,
     this directory will contain the mirror. Everything else that might have
     happened to be in there WILL BE GONE after the mirror sync!
 
-    Default: **/srv/mirrors/debian/**
+    Default: `/srv/mirrors/debian/`
 
 **MAILTO**
 :    The script can send logs (or error messages) to a mail address.
      If this is unset it will default to the current user.
 
-     Default: **$LOGNAME**
+     Default: `$LOGNAME`
 
 **HUB**
 :    Do we have leaf mirror to signal we are done and they should sync?
      If so set it to true and make sure you configure runmirrors.mirrors
      and runmirrors.conf for your need.
 
-     Default: **false**
+     Default: `false`
 
 ## Connection options
 
@@ -54,7 +54,7 @@ turn sync from it.
     rsync YOURUPSTREAMSERVER::
     (You might have to export RSYNC_USER/RSYNC_PASSWORD for this to work)
 
-    Default: **debian**
+    Default: `debian`
 
 **RSYNC_USER**
 :   In case we need a user to access the rsync share at our upstream host.
@@ -76,10 +76,10 @@ turn sync from it.
         See the other **RSYNC_SSL** options below.
 
 **RSYNC_SSL_PORT**
-:   Default: **1873**
+:   Default: `1873`
 
 **RSYNC_SSL_CAPATH**
-:   Default: **/etc/ssl/certs**
+:   Default: `/etc/ssl/certs`
 
 **RSYNC_SSL_METHOD**
 :    ftpsync can use either stunnel, stunnel-old, or socat to set up the
@@ -103,9 +103,9 @@ turn sync from it.
 
     To test if things work, you can run:
 
-    **rsync -e 'bin/rsync-ssl-tunnel -m socat -p 1873 -C /etc/ssl/certs' SERVER::**
+    `rsync -e 'bin/rsync-ssl-tunnel -m socat -p 1873 -C /etc/ssl/certs' SERVER::`
 
-    Default: stunnel
+    Default: `stunnel`
 
 **RSYNC_PROXY**
 :   You may establish the connection via a web proxy by setting the environment
@@ -121,27 +121,27 @@ These options add informations about the mirror to a publicly accessible file.
     used to report irregularities and problems with the mirror.  They
     must actually accept mail.
 
-    Example: **INFO_MAINTAINER="Admins <admins@example.com>, Person <person@example.com>"**
+    Example: `INFO_MAINTAINER="Admins <admins@example.com>, Person <person@example.com>"`
 
 **INFO_SPONSOR**
 :   Organizations sponsoring this mirror.
 
-    Example: **INFO_SPONSOR="Example <https://example.com>"**
+    Example: `INFO_SPONSOR="Example <https://example.com>"`
 
 **INFO_COUNTRY**
 :   The ISO 3361-1 code of the country hosting this mirror.
 
-    Example: **INFO_COUNTRY=DE**
+    Example: `INFO_COUNTRY=DE`
 
 **INFO_LOCATION**
 :   The location this mirror is hosted in.
 
-    Example: **INFO_LOCATION="Example"**
+    Example: `INFO_LOCATION="Example"`
 
 **INFO_THROUGHPUT**
 :   Available throughput for this mirror per second.
 
-    Example: **INFO_THROUGHPUT=10Gb**
+    Example: `INFO_THROUGHPUT=10Gb`
 
 ## Include and exclude options
 
@@ -159,7 +159,7 @@ These options can be used to include or exclude specified architectures or other
 
     Mutually exclusive with **ARCH_EXCLUDE**.
 
-    Example: **ARCH_INCLUDE="amd64 i386 source"**
+    Example: `ARCH_INCLUDE="amd64 i386 source"`
 
 **ARCH_EXCLUDE**
 :   If you want to exclude an architecture, this is for you.
@@ -168,7 +168,7 @@ These options can be used to include or exclude specified architectures or other
 
     Mutually exclusive with **ARCH_INCLUDE**.
 
-    Example: **ARCH_EXCLUDE="alpha arm arm64 armel mipsel mips s390 sparc"**
+    Example: `ARCH_EXCLUDE="alpha arm arm64 armel mipsel mips s390 sparc"`
 
 **EXCLUDE**
 :   If you do want to exclude files from the mirror run, put --exclude statements here.
@@ -180,7 +180,7 @@ These options can be used to include or exclude specified architectures or other
 **LOGDIR**
 :   In which directory should logfiles end up.
 
-    Default: **~/.local/log/ftpsync** in the package, **${BASEDIR}/log** otherwise
+    Default: `~/.local/log/ftpsync` in the package, `${BASEDIR}/log` otherwise
 
 **LOG**
 :   Name of our own logfile.
@@ -189,50 +189,50 @@ These options can be used to include or exclude specified architectures or other
     is called. See README for a description of the multi-archive capability
     and better always include ${NAME} in this path.
 
-    Default: **${LOGDIR}/${NAME}.log**
+    Default: `${LOGDIR}/${NAME}.log`
 
 **ERRORSONLY**
 :   If you do want a mail about every single sync, set this to false
     Everything else will only send mails if a mirror sync fails.
 
-    Default: **true**
+    Default: `true`
 
 **FULLLOGS**
 :   If you want the logs to also include output of rsync, set this to true.
     Careful, the logs can get pretty big, especially if it is the first mirror run.
 
-    Default: **false**
+    Default: `false`
 
 **LOGROTATE**
 :   We do create three logfiles for every run. To save space we rotate them, this
     defines how many we keep.
 
-    Default: **14**
+    Default: `14`
 
 ## Other options
 
 **LOCKTIMEOUT**
 :   Timeout for the lockfile, in case we have bash older than v4 (and no /proc).
 
-    Default: **3600**
+    Default: `3600`
 
 **UIPSLEEP**
 :   Number of seconds to sleep before retrying to sync whenever upstream
     is found to be updating while our update is running.
 
-    Default: **1200**
+    Default: `1200`
 
 **UIPRETRIES**
 :   Number of times the update operation will be retried when upstream
     is found to be updating while our update is running.
     Note that these are retries, so: 1st attempt + retries = total attempts.
 
-    Default: **3**
+    Default: `3`
 
 **TRACEHOST**
 :   The local hostname to be written to the trace file.
 
-    Default: **$(hostname -f)**
+    Default: `$(hostname -f)`
 
 **RSYNC**
 :   The rsync program.

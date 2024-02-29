@@ -17,22 +17,22 @@ turn sync from it.
 # OPTIONS
 
 **MAILTO**
-:    The script can send logs (or error messages) to a mail address.
-     If this is unset it will default to the current user.
+:   The script can send logs (or error messages) to a mail address.
+    If this is unset it will default to the current user.
 
-     Default: **$LOGNAME**
+    Default: `$LOGNAME`
 
 **KEYFILE**
 :   Which ssh key to use?
 
-    Default: **~/.ssh/pushmirror**
+    Default: `~/.ssh/pushmirror`
 
 ## Log options
 
 **LOGDIR**
 :   In which directory should logfiles end up.
 
-    Default: **~/.local/log/ftpsync** in the package, **${BASEDIR}/log** otherwise
+    Default: `~/.local/log/ftpsync` in the package, `${BASEDIR}/log` otherwise
 
 **LOG**
 :   Name of our own logfile.
@@ -41,31 +41,31 @@ turn sync from it.
     is called. See README for a description of the multi-archive capability
     and better always include ${NAME} in this path.
 
-    Default: **${LOGDIR}/${NAME}.log**
+    Default: `${LOGDIR}/${NAME}.log`
 
 **LOGROTATE**
 :   We do create a logfile for every run. To save space we rotate them, this
     defines how many we keep.
 
-    Default: **14**
+    Default: `14`
 
 ## Other options
 
 **LOCKDIR**
 :   Our lockfile directory.
 
-    Default: **~/.local/lock/ftpsync** in the package, **${BASEDIR}/locks** otherwise
+    Default: `~/.local/lock/ftpsync` in the package, `${BASEDIR}/locks` otherwise
 
 **MIRRORS**
 :   Our mirrorfile.
 
-    Default: **${CONFDIR}/${NAME}.mirror**
+    Default: `${CONFDIR}/${NAME}.mirror`
 
 **SSH_OPTS**
 :   Extra ssh options we might want. *hostwide*.
     By default, ignore ssh key change of leafs.
 
-    Default: **"-o StrictHostKeyChecking=no"**
+    Default: `"-o StrictHostKeyChecking=no"`
 
 **PUSHARCHIVE**
 :   What's our archive name? We will also tell our leafs about it.
@@ -76,7 +76,7 @@ turn sync from it.
 **PUSHDELAY**
 :   How long to wait for mirrors to do stage1 if we have multi-stage syncing.
 
-    Default: **600**
+    Default: `600`
 
 ## Hooks
 
