@@ -14,7 +14,5 @@ organized in a tree-shaped hierarchy.  Thus, every mirror has exactly one upstre
 from which it syncs, and each mirror can have any number of downstreams which in
 turn sync from it.
 
-# OPTIONS
-
 # SEE ALSO
 **runmirrors**(1)
